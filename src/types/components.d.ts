@@ -11,5 +11,7 @@ declare module 'vue' {
     ASpace: typeof import('ant-design-vue/es')['Space']
     ATabPane: typeof import('ant-design-vue/es')['TabPane']
     ATabs: typeof import('ant-design-vue/es')['Tabs']
+    RouterLink: typeof import('vue-router')['RouterLink']
+    RouterView: typeof import('vue-router')['RouterView']
   }
 }

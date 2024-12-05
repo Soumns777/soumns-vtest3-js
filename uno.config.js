@@ -24,8 +24,41 @@ export default defineConfig({
             'sm': '10px'
         }
     },
-    rules: [],
+    rules: [
+        [/^m-(\d*)$/, ([, d]) => ({margin: `${d}`})],
+        [/^p-(\d*)$/, ([, d]) => ({padding: `${d}px`})],
+        [/^mx-(\d*)$/, ([, d]) => ({margin: `0 ${d}px 0 ${d}px`})],
+        [/^my-(\d*)$/, ([, d]) => ({margin: `${d}px 0 ${d}px 0`})],
+        [/^px-(\d*)$/, ([, d]) => ({padding: `0 ${d}px 0 ${d}px`})],
+        [/^py-(\d*)$/, ([, d]) => ({padding: `${d}px 0 ${d}px 0`})],
+
+        // 设置margin-top不会自动 10rpx -> 80rpx
+        [/^m(t|b|l|r*)-(\d*)$/, ([, t, d]) => {
+            const map = {
+                t: 'top',
+                b: 'bottom',
+                l: 'left',
+                r: 'right',
+            }
+            return ({[t ? `margin-${map[t]}` : 'margin']: `${d}px`})
+        }],
+        // 设置margin-top不会自动 10rpx -> 80rpx
+        [/^p(t|b|l|r*)-(\d*)$/, ([, t, d]) => {
+            const map = {
+                t: 'top',
+                b: 'bottom',
+                l: 'left',
+                r: 'right',
+            }
+            return ({[t ? `padding-${map[t]}` : 'padding']: `${d}px`})
+        }],
+    ],
     shortcuts: [
+        // flex-wrap: wrap
+        [
+            'f-w',
+            'flex-wrap flex'
+        ],
         // 动态颜色
         [
             /^s-btn-(.*)$/,
