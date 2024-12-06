@@ -9,7 +9,6 @@ import UnoCSS from 'unocss/vite'
 import path from 'path';
 const pathSrc = path.resolve(__dirname, 'src');
 
-// https://vite.dev/config/
 export default defineConfig({
     base: './',
     publicDir: 'public',
@@ -22,9 +21,7 @@ export default defineConfig({
         dts: 'src/types/auto-imports.d.ts',
       }),
       Components({
-          // allow auto load markdown components under `./src/components/`
           extensions: ['vue', 'md'],
-          // allow auto import and register components used in markdown
           include: [/\.vue$/, /\.vue\?vue/, /\.md$/],
           dts: 'src/types/components.d.ts',
           resolvers: [ AntDesignVueResolver({

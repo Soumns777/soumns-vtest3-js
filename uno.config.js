@@ -59,6 +59,17 @@ export default defineConfig({
             'f-w',
             'flex-wrap flex'
         ],
+        // flex-direction: column;
+        [
+            'f-col',
+            'flex-col flex'
+        ],
+        // justify-content: space-between;
+        [
+            'j-c-b',
+            'justify-between'
+        ],
+
         // 动态颜色
         [
             /^s-btn-(.*)$/,

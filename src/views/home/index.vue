@@ -5,6 +5,7 @@
    * @Date: 2024年12月5日16:49:15
 -->
 <script lang="js" setup name="Home">
+// table data
 const headerData = ref([
   {
     id:1,
@@ -103,9 +104,17 @@ const rowHeight = computed(() => {
     return data.isLong ? '130px' : '80px'
   }
 })
+
+// son component
+import Test from './test.vue'
+const count = ref(1)
+const count1 = ref('2')
+const count2 = ref()
 </script>
 
 <template>
+  <Test v-model="count" v-model:count1="count1" v-model:count2="count2"/>
+
  <div f-c>
    <div v-for="(item,idx) in headerData" :key="item.id" w-120 h-30 b="1 solid #efefef" f-c-c>
      {{item.title}}
@@ -117,7 +126,6 @@ const rowHeight = computed(() => {
       {{item[item1]}}
     </div>
   </div>
-
 </template>
 
 
